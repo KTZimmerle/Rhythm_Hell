@@ -21,7 +21,7 @@ public class ShieldController : MonoBehaviour {
 		if (isActive) {
 			other.SendMessage ("OnBlock", SendMessageOptions.DontRequireReceiver);
 			Debug.Log ("blocked");
-			//Destroy (other.gameObject);
+			Destroy (other.gameObject);
 		}
 	}
 	
