@@ -9,11 +9,12 @@ public class RH_RespawnPoint : MonoBehaviour {
     public Vector2 RespawnPt3;*/
     public float PosX;
     public float PosY;
-    public float minPosX = -5.0f;
+    /*public float minPosX = -5.0f;
     public float minPosY = -5.0f;
     public float maxPosX = 5.0f;
-    public float maxPosY = 5.0f;
+    public float maxPosY = 5.0f;*/
     public GameObject Enemy;
+    public GameObject Wave;
     //List<GameObject> SpawnerStack;
     //public GameObject EnemyWaveAttack;
 
@@ -21,7 +22,7 @@ public class RH_RespawnPoint : MonoBehaviour {
     {
         //TODO: once more game systems are in place, set up variables here to be private
         //      and initialize in this script
-        RandomizePosition();
+        //RandomizePosition();
     }
 
     // Update is called once per frame
@@ -47,14 +48,14 @@ public class RH_RespawnPoint : MonoBehaviour {
         return SpawnerStack.LastIndexOf(g);
     }*/
 
-    public void SpawnEnemy(Vector3 pt)
+    public void SpawnEnemy()
     {
-        GameObject clone = Instantiate(Enemy, pt, Enemy.transform.rotation) as GameObject;
+        GameObject clone = Instantiate(Enemy, transform.position, transform.rotation) as GameObject;
     }
 
-    public void RandomizePosition(float xMinRange = -5.0f, float xMaxRange = 5.0f, float yMinRange = -5.0f, float yMaxRange = 5.0f)
+    /*public void RandomizePosition(float xMinRange = -5.0f, float xMaxRange = 5.0f, float yMinRange = -5.0f, float yMaxRange = 5.0f)
     {
         PosX = Random.Range(xMinRange, xMaxRange);
         PosY = Random.Range(xMinRange, xMaxRange);
-    }
+    }*/
 }

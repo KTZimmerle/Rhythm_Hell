@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour {
 
-    List<GameObject> SpawnerStack;
+    List<RH_RespawnPoint> SpawnerStack;
+    RH_RespawnPoint respawnPtOne;
+    RH_RespawnPoint respawnPtTwo;
+    RH_RespawnPoint respawnPtThree;
     private int top = 0;
 
 	// Use this for initialization
 	void Awake ()
     {
-		
-	}
+        respawnPtOne = GameObject.FindGameObjectWithTag("SpawnPt1").GetComponent<RH_RespawnPoint>();
+        respawnPtTwo = GameObject.FindGameObjectWithTag("SpawnPt2").GetComponent<RH_RespawnPoint>();
+        respawnPtThree = GameObject.FindGameObjectWithTag("SpawnPt3").GetComponent<RH_RespawnPoint>();
+        //respawnPtOne.SpawnEnemy();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -19,9 +25,9 @@ public class NewBehaviourScript : MonoBehaviour {
 		
 	}
 
-    public void AddSpawn(GameObject obj)
+    public void AddSpawn(RH_RespawnPoint spawn)
     {
-        Push(obj);
+        Push(spawn);
     }
 
     public void ActivateSpawn()
@@ -32,18 +38,19 @@ public class NewBehaviourScript : MonoBehaviour {
 
     private int Pop()
     {
-        GameObject clone = Instantiate(Peek(), Peek().transform.position, Peek().transform.rotation);
+        //GameObject clone = Instantiate(Peek(), Peek().transform.position, Peek().transform.rotation);
+        Peek().SpawnEnemy();
         SpawnerStack.RemoveAt(top);
         return top--;
     }
 
-    private void Push(GameObject g)
+    private void Push(RH_RespawnPoint r)
     {
-        SpawnerStack.Add(g);
-        top = SpawnerStack.IndexOf(g);
+        SpawnerStack.Add(r);
+        top = SpawnerStack.IndexOf(r);
     }
 
-    private GameObject Peek()
+    private RH_RespawnPoint Peek()
     {
         return SpawnerStack[top];
     }
