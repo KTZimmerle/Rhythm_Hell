@@ -22,6 +22,7 @@ public class RH_SpawnerStack : MonoBehaviour {
         respawnPtOne = GameObject.FindGameObjectWithTag("SpawnPt1").GetComponent<RH_RespawnPoint>();
         respawnPtTwo = GameObject.FindGameObjectWithTag("SpawnPt2").GetComponent<RH_RespawnPoint>();
         respawnPtThree = GameObject.FindGameObjectWithTag("SpawnPt3").GetComponent<RH_RespawnPoint>();
+        beatListOne = GameObject.FindGameObjectWithTag("BL1").GetComponent<RH_BeatList>();
         //respawnPtOne.SpawnEnemy();
 
     }
