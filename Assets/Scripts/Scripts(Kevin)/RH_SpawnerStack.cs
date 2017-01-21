@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour {
 
     List<GameObject> SpawnerStack;
-    int top = 0;
+    private int top = 0;
 
 	// Use this for initialization
 	void Awake ()
@@ -19,9 +19,20 @@ public class NewBehaviourScript : MonoBehaviour {
 		
 	}
 
+    public void AddSpawn(GameObject obj)
+    {
+        Push(obj);
+    }
+
+    public void ActivateSpawn()
+    {
+        if(SpawnerStack.Count > 0)
+            Pop();
+    }
 
     private int Pop()
     {
+        GameObject clone = Instantiate(Peek(), Peek().transform.position, Peek().transform.rotation);
         SpawnerStack.RemoveAt(top);
         return top--;
     }

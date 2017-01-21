@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RH_Enemy : MonoBehaviour {
 
-
+    public int scoreValue;
 
 	// Use this for initialization
 	void Start () {
@@ -16,5 +16,9 @@ public class RH_Enemy : MonoBehaviour {
 		
 	}
 
+    public int GetScoreValue()
+    {
+        return scoreValue;
+    }
 
 }

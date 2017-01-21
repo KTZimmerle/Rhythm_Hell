@@ -6,6 +6,7 @@ public class RH_Wave : MonoBehaviour {
 
     public float startRadius;
     public float endRadius;
+    public int scoreValue;
 
 	// Use this for initialization
 	void Awake () {
@@ -17,9 +18,14 @@ public class RH_Wave : MonoBehaviour {
 		
 	}
 
-    void Hit(GameObject obj)
+    void HitHandler(GameObject obj)
     {
         //if object is a wave, do something
         //if object is an enemy/player, do something
+    }
+
+    public int GetScoreValue()
+    {
+        return scoreValue;
     }
 }
