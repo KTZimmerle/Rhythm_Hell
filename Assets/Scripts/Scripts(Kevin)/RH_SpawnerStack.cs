@@ -8,7 +8,13 @@ public class RH_SpawnerStack : MonoBehaviour {
     RH_RespawnPoint respawnPtOne;
     RH_RespawnPoint respawnPtTwo;
     RH_RespawnPoint respawnPtThree;
+    RH_BeatList beatListOne;
+    RH_BeatList beatListTwo;
+    RH_BeatList beatListThree;
+    RH_BeatList currentBL;
+    bool gameStarted = false;
     private int top = 0;
+    float timer;
 
 	// Use this for initialization
 	void Awake ()
@@ -22,17 +28,52 @@ public class RH_SpawnerStack : MonoBehaviour {
 
 	void Start()
 	{
-		AddSpawn(respawnPtOne);
+		/*AddSpawn(respawnPtOne);
 		AddSpawn(respawnPtOne);
 		AddSpawn(respawnPtTwo);
-		AddSpawn(respawnPtThree);
+		AddSpawn(respawnPtThree);*/
 	}
 
+    RH_RespawnPoint HandleRespawnPt(string spawnName)
+    {
+        RH_RespawnPoint r = null;
+        if (spawnName.CompareTo("SpawnPt1") == 0)
+            r = respawnPtOne;
+        if (spawnName.CompareTo("SpawnPt2") == 0)
+            r = respawnPtTwo;
+        if (spawnName.CompareTo("SpawnPt3") == 0)
+            r = respawnPtThree;
+
+        return r;
+    }
+
+    //when choosing a song, it will take a list of preset positions to add to the stack
+    void InitializeNextSong(RH_BeatList bl)
+    {
+        for (int i = 0; i < bl.getSTLength(); i++)
+        {
+            AddSpawn(HandleRespawnPt(bl.spawnLocation[i]));
+        }
+        currentBL = bl;
+        gameStarted = true;
+    }
 
 	// Update is called once per frame
 	void Update ()
     {
-		ActivateSpawn();
+        if(timer < 0.0f && gameStarted && currentBL != null)
+        {
+            //check to make sure that the list still has more times to go through before spawning or getting next time
+            if (!currentBL.isDone)
+            {
+                ActivateSpawn();
+                timer = currentBL.nextTime();
+            }
+            else
+                currentBL = null;
+        }
+        if (gameStarted && currentBL != null)
+            timer -= Time.deltaTime;
 	}
 
     public void AddSpawn(RH_RespawnPoint spawn)
@@ -44,7 +85,6 @@ public class RH_SpawnerStack : MonoBehaviour {
     {
 		if(SpawnerStack.Count > 0){
 			Pop();
-			Debug.Log("Sent Wave");
 		}
     }
 
