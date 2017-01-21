@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RH_SpawnerStack : MonoBehaviour {
 
-    List<RH_RespawnPoint> SpawnerStack;
+	List<RH_RespawnPoint> SpawnerStack = new List<RH_RespawnPoint>();
     RH_RespawnPoint respawnPtOne;
     RH_RespawnPoint respawnPtTwo;
     RH_RespawnPoint respawnPtThree;
@@ -17,12 +17,26 @@ public class RH_SpawnerStack : MonoBehaviour {
         respawnPtTwo = GameObject.FindGameObjectWithTag("SpawnPt2").GetComponent<RH_RespawnPoint>();
         respawnPtThree = GameObject.FindGameObjectWithTag("SpawnPt3").GetComponent<RH_RespawnPoint>();
         //respawnPtOne.SpawnEnemy();
+		Debug.Log(respawnPtOne);
+		Debug.Log(respawnPtTwo);
+		Debug.Log(respawnPtThree);
+
     }
-	
+
+	void Start()
+	{
+		AddSpawn(respawnPtOne);
+		AddSpawn(respawnPtOne);
+		AddSpawn(respawnPtTwo);
+		AddSpawn(respawnPtThree);
+		Debug.Log("Spawns: " + SpawnerStack.Count);
+	}
+
+
 	// Update is called once per frame
 	void Update ()
     {
-		
+		ActivateSpawn();
 	}
 
     public void AddSpawn(RH_RespawnPoint spawn)
@@ -32,8 +46,10 @@ public class RH_SpawnerStack : MonoBehaviour {
 
     public void ActivateSpawn()
     {
-        if(SpawnerStack.Count > 0)
-            Pop();
+		if(SpawnerStack.Count > 0){
+			Pop();
+			Debug.Log("Sent Wave");
+		}
     }
 
     private int Pop()
