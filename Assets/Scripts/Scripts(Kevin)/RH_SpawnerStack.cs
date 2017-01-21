@@ -56,6 +56,7 @@ public class RH_SpawnerStack : MonoBehaviour {
         }
         currentBL = bl;
         gameStarted = true;
+		timer = currentBL.nextTime();
     }
 
 	// Update is called once per frame
