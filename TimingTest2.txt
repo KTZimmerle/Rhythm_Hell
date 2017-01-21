@@ -1,0 +1,11 @@
+0.25|SpawnPt2
+0.75|SpawnPt2
+0.05|SpawnPt1
+0.55|SpawnPt3
+0.05|SpawnPt3
+0.00|SpawnPt2
+1.1|SpawnPt3
+1.5|SpawnPt2
+0.00|SpawnPt1
+0.25|SpawnPt2
+0.5|SpawnPt3

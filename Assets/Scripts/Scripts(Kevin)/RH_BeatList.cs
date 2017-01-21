@@ -56,9 +56,13 @@ public class RH_BeatList : MonoBehaviour {
 
     public float nextTime()
     {
-        float t = timings[index];
+        float t = 5.0f;
+        Debug.Log("Index: " + index + " Count: " + timings.Count);
         if (index < timings.Count)
+        {
+            t = timings[index];
             index++;
+        }
         else
             isDone = true;
         return t;
