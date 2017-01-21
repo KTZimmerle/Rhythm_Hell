@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class RH_SpawnerStack : MonoBehaviour {
 
     List<RH_RespawnPoint> SpawnerStack;
     RH_RespawnPoint respawnPtOne;
