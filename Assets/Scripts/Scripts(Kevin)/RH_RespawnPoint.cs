@@ -23,6 +23,7 @@ public class RH_RespawnPoint : MonoBehaviour {
         //TODO: once more game systems are in place, set up variables here to be private
         //      and initialize in this script
         //RandomizePosition();
+        
     }
 
     // Update is called once per frame

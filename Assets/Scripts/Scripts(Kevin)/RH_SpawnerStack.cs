@@ -17,9 +17,6 @@ public class RH_SpawnerStack : MonoBehaviour {
         respawnPtTwo = GameObject.FindGameObjectWithTag("SpawnPt2").GetComponent<RH_RespawnPoint>();
         respawnPtThree = GameObject.FindGameObjectWithTag("SpawnPt3").GetComponent<RH_RespawnPoint>();
         //respawnPtOne.SpawnEnemy();
-		Debug.Log(respawnPtOne);
-		Debug.Log(respawnPtTwo);
-		Debug.Log(respawnPtThree);
 
     }
 
@@ -29,7 +26,6 @@ public class RH_SpawnerStack : MonoBehaviour {
 		AddSpawn(respawnPtOne);
 		AddSpawn(respawnPtTwo);
 		AddSpawn(respawnPtThree);
-		Debug.Log("Spawns: " + SpawnerStack.Count);
 	}
 
 
