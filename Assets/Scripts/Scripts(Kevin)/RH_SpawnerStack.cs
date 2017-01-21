@@ -33,6 +33,7 @@ public class RH_SpawnerStack : MonoBehaviour {
 		AddSpawn(respawnPtOne);
 		AddSpawn(respawnPtTwo);
 		AddSpawn(respawnPtThree);*/
+		InitializeNextSong(beatListOne);
 	}
 
     RH_RespawnPoint HandleRespawnPt(string spawnName)
@@ -53,6 +54,7 @@ public class RH_SpawnerStack : MonoBehaviour {
     {
         for (int i = 0; i < bl.getSTLength(); i++)
         {
+			Debug.Log(i);
             AddSpawn(HandleRespawnPt(bl.spawnLocation[i]));
         }
         currentBL = bl;
@@ -95,14 +97,20 @@ public class RH_SpawnerStack : MonoBehaviour {
         //GameObject clone = Instantiate(Peek(), Peek().transform.position, Peek().transform.rotation);
         Peek().SpawnEnemy();
         SpawnerStack.RemoveAt(top);
+		Debug.Log("top: " + top);
         return top--;
     }
 
     private void Push(RH_RespawnPoint r)
     {
         SpawnerStack.Add(r);
-        top = SpawnerStack.IndexOf(r);
-    }
+		Debug.Log("Add: " + r);
+        //top = SpawnerStack.IndexOf(r);
+		top = SpawnerStack.Count - 1;
+		Debug.Log("Update top at PUSH: " + top); 
+		Debug.Log("List Size: " + SpawnerStack.Count);
+
+	}
 
     private RH_RespawnPoint Peek()
     {
