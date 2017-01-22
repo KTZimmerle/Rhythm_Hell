@@ -22,6 +22,11 @@ public class SceneController : MonoBehaviour {
 		UnityEngine.SceneManagement.SceneManager.LoadScene (sceneToLoad);
 	}
 
+	void QuitGame()
+	{
+		Application.Quit();
+	}
+
 	void GameOverLose() {
 		if (!gameOver) {
 			gameOver = true;
