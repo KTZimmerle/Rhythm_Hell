@@ -23,9 +23,9 @@ public class PlayerController : MonoBehaviour {
 	void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
-		shieldA = player.transform.GetChild(1).GetComponentInChildren<ShieldController>();
-		shieldB = player.transform.GetChild(2).GetComponentInChildren<ShieldController>();
-		shieldC = player.transform.GetChild(3).GetComponentInChildren<ShieldController>();
+		shieldA = player.transform.GetChild(0).GetComponentInChildren<ShieldController>();
+		shieldB = player.transform.GetChild(1).GetComponentInChildren<ShieldController>();
+		shieldC = player.transform.GetChild(2).GetComponentInChildren<ShieldController>();
 		damaged = GetComponent<AudioSource> ();
 		playerRender = GameObject.FindGameObjectWithTag ("PlayerSprite").GetComponent<SpriteRenderer>();
 		damagedRender = GameObject.FindGameObjectWithTag ("PlayerSpriteDamaged").GetComponent<SpriteRenderer>();
