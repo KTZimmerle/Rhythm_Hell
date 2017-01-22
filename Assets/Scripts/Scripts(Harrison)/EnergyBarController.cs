@@ -6,7 +6,7 @@ public class EnergyBarController : MonoBehaviour
 {
     public float maxEnergy = 100.0f;
     public float minEnergy = 0.0f;
-    public float incrementAmount = 10.0f;
+    public float incrementAmount = 05.0f;
     public float decrementAmount = 10.0f;
 	public Sprite full_charge;
 	public Sprite semi_charge;
@@ -90,9 +90,9 @@ public class EnergyBarController : MonoBehaviour
 		DestroyWaves ("waveB");
 		DestroyWaves ("waveC");
 
-        boss.takeDamage(2);
-        boss2.takeDamage(2);
-        boss3.takeDamage(2);
+        boss.takeDamage(1);
+        boss2.takeDamage(1);
+        boss3.takeDamage(1);
         currentEnergy = 25.0f;
         img.fillAmount = currentEnergy / maxEnergy;
 

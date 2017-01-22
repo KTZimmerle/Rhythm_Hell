@@ -40,7 +40,7 @@ public class SceneController : MonoBehaviour {
 		}
 	}
 
-	void GameOverWin() {
+	public void GameOverWin() {
 		if (!gameOver) {
 			destroyed.Play ();
 			gameOver = true;
