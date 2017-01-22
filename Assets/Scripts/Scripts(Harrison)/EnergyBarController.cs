@@ -90,9 +90,9 @@ public class EnergyBarController : MonoBehaviour
 		DestroyWaves ("waveB");
 		DestroyWaves ("waveC");
 
-        boss.takeDamage(2);
-        boss2.takeDamage(2);
-        boss3.takeDamage(2);
+        boss.takeDamage(1);
+        boss2.takeDamage(1);
+        boss3.takeDamage(1);
         currentEnergy = 25.0f;
         img.fillAmount = currentEnergy / maxEnergy;
 
