@@ -10,6 +10,7 @@ public class RH_RespawnPoint : MonoBehaviour {
     public GameObject Enemy;
     public GameObject Wave;
     public int health = 5;
+    public SceneController sc;
     RH_ScoreSystem ss;
     bool isDead = false;
     //List<GameObject> SpawnerStack;
@@ -60,6 +61,7 @@ public class RH_RespawnPoint : MonoBehaviour {
             ss.ModifyScore(1000);
             //Destroy(gameObject);
             isDead = true;
+            sc.GameOverWin();
         }
     }
 
