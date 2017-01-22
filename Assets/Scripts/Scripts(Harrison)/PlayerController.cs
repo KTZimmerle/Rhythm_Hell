@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log ("player hit");
+		//Debug.Log ("player hit");
 		Destroy (other.gameObject);
 		eBar.DecrementEnergy ();
 		//also reduce the energy bar if hit

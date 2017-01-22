@@ -39,7 +39,7 @@ public class ShieldController : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other) {
 		if (isActive) {
 			other.SendMessage ("OnBlock", SendMessageOptions.DontRequireReceiver);
-			Debug.Log ("blocked");
+			//Debug.Log ("blocked");
 
 
 			if ((other.tag == "waveA" && GetComponent<Transform>().tag == "ShieldA") || other.tag == "waveB" && GetComponent<Transform>().tag == "ShieldW" || other.tag == "waveC" && GetComponent<Transform>().tag == "ShieldD")//&& myVersion == Version.waveA)

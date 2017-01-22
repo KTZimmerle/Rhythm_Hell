@@ -55,8 +55,6 @@ public class RH_SpawnerStack : MonoBehaviour {
         for (int i = 0; i < bl.getSTLength(); i++)
         {
             AddSpawn(HandleRespawnPt(bl.spawnLocation[i]));
-			Debug.Log(Peek());
-			//Debug.Break();
         }
 
         currentBL = bl;
