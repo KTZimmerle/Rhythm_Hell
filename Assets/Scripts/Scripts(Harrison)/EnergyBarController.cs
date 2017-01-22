@@ -17,7 +17,7 @@ public class EnergyBarController : MonoBehaviour
 	float currentEnergy = 50.0f;
 
 	void Start () {
-        //boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<RH_RespawnPoint>();
+        boss = GameObject.FindGameObjectWithTag("SpawnPt1").GetComponent<RH_RespawnPoint>();
         ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<RH_ScoreSystem>();
 		img = GetComponent<UnityEngine.UI.Image> ();
 		img.fillAmount = currentEnergy / maxEnergy;
@@ -53,17 +53,24 @@ public class EnergyBarController : MonoBehaviour
         }
     }
 
+	void DestroyWaves(string tag) {
+		GameObject[] waves = new GameObject[50];
+		waves = GameObject.FindGameObjectsWithTag(tag);
+		foreach(GameObject w in waves)
+		{
+			Destroy(w);
+			ss.ModifyScore(100);
+		}
+	}
+
     IEnumerator ActivateAttack()
     {
-        GameObject[] waves = new GameObject[50];
-        waves = GameObject.FindGameObjectsWithTag("waves");
-        foreach(GameObject w in waves)
-        {
-            Destroy(w);
-            ss.ModifyScore(100);
-        }
+		DestroyWaves ("waveA");
+		DestroyWaves ("waveB");
+		DestroyWaves ("waveC");
+
         boss.takeDamage(2);
-        currentEnergy = 0.0f;
+        currentEnergy = 50.0f;
         img.fillAmount = currentEnergy / maxEnergy;
 
         yield return new WaitForSeconds(0.1f);
