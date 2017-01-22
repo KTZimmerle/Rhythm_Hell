@@ -6,13 +6,14 @@ public class EnergyBarController : MonoBehaviour
 {
     public float maxEnergy = 100.0f;
     public float minEnergy = 0.0f;
-    public float incrementAmount = 5.0f;
+    public float incrementAmount = 10.0f;
     public float decrementAmount = 10.0f;
 
     RH_ScoreSystem ss;
     RH_RespawnPoint boss;
     public KeyCode activateOn = KeyCode.None;
-	float energyBombThreshold = 75;
+	float energyBombThreshold = 75.0f;
+	AudioSource attack;
 
     UnityEngine.UI.Image img;
 	float currentEnergy = 50.0f;
@@ -22,6 +23,7 @@ public class EnergyBarController : MonoBehaviour
         ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<RH_ScoreSystem>();
 		img = GetComponent<UnityEngine.UI.Image> ();
 		img.fillAmount = currentEnergy / maxEnergy;
+		attack = GetComponent<AudioSource> ();
 	}
 
 	float min(float a, float b){
@@ -65,13 +67,16 @@ public class EnergyBarController : MonoBehaviour
 
     IEnumerator ActivateAttack()
     {
+
+		attack.Play ();
 		DestroyWaves ("waveA");
 		DestroyWaves ("waveB");
 		DestroyWaves ("waveC");
 
         boss.takeDamage(2);
-        currentEnergy -= 50.0f;
+        currentEnergy = 25.0f;
         img.fillAmount = currentEnergy / maxEnergy;
+
 
         yield return new WaitForSeconds(0.1f);
     }

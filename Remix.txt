@@ -112,10 +112,10 @@
 0.1675|SpawnPt2
 0.1675|SpawnPt1
 0.67|SpawnPt2
-0.335|SpawnPt2
-0.1675|SpawnPt1
-0.1675|SpawnPt1
-0.335|SpawnPt3
+0.33|SpawnPt2
+0.167|SpawnPt1
+0.167|SpawnPt1
+0.33|SpawnPt3
 0.335|SpawnPt3
 0.335|SpawnPt1
 0.335|SpawnPt3

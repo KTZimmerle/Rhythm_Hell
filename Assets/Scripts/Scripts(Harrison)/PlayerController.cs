@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	ShieldController shieldA;
 	ShieldController shieldB;
 	ShieldController shieldC;
+	AudioSource damaged;
 
 	void Awake()
 	{
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 		shieldA = player.transform.GetChild(1).GetComponentInChildren<ShieldController>();
 		shieldB = player.transform.GetChild(2).GetComponentInChildren<ShieldController>();
 		shieldC = player.transform.GetChild(3).GetComponentInChildren<ShieldController>();
-
+		damaged = GetComponent<AudioSource> ();
 	}
 
 	void Start () {
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour {
 		eBar.DecrementEnergy ();
 		//also reduce the energy bar if hit
 		miss = true; 
+
+		damaged.Play ();
 	}
 
 	void Update () {

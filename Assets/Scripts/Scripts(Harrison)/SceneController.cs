@@ -9,10 +9,12 @@ public class SceneController : MonoBehaviour {
 	bool gameOver = false;
 	UnityEngine.UI.Text overlayText;
 	TransitionButton transButton;
+	AudioSource destroyed;
 
 	void Start () {
 		overlayText = FindObjectOfType<OverlayController> ().GetComponent<UnityEngine.UI.Text>();
 		transButton = FindObjectOfType<TransitionButton> ();
+		destroyed = GetComponent<AudioSource> ();
 	}
 
 	void NextScene() {
@@ -31,6 +33,7 @@ public class SceneController : MonoBehaviour {
 
 	void GameOverWin() {
 		if (!gameOver) {
+			destroyed.Play ();
 			gameOver = true;
 			overlayText.text = "Victory!";
 			overlayText.enabled = true;
