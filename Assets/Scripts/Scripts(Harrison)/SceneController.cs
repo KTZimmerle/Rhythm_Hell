@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuController : MonoBehaviour {
-	public string sceneToLoad = "Harrison(Test)";
+public class SceneController : MonoBehaviour {
+	public string sceneToLoad = "Main Menu";
 
 	void Start () {
 		
 	}
 
-	void OnStart() {
+	void NextScene() {
+		Debug.Log ("changing to next scene " + sceneToLoad);
 		UnityEngine.SceneManagement.SceneManager.LoadScene (sceneToLoad);
 	}
 

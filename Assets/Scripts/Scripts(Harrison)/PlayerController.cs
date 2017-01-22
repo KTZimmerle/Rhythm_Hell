@@ -10,13 +10,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		//other.SendMessage ("OnHit", SendMessageOptions.DontRequireReceiver);
 		Debug.Log ("player hit");
 		Destroy (other.gameObject);
 		hitPoints -= damagePerHit;
 
 		if (hitPoints <= 0) {
-			FindObjectOfType<GameOverController> ().SendMessage ("OnGameOver");
+			//FindObjectOfType<GameOverController> ().SendMessage ("OnGameOver");
 		}
 	}
 
