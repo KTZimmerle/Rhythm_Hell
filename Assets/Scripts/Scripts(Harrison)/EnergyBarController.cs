@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnergyBarController : MonoBehaviour {
 	public float maxEnergy = 100.0f;
+	public float minEnergy = 0.0f;
 	public float incrementAmount = 10.0f;
+	public float decrementAmount = 15.0f;
 
 	UnityEngine.UI.Image img;
 	float currentEnergy = 0.0f;
@@ -25,6 +27,13 @@ public class EnergyBarController : MonoBehaviour {
 		currentEnergy = min (currentEnergy + incrementAmount, maxEnergy);
 		img.fillAmount = currentEnergy / maxEnergy;
 	}
+
+	public void DecrementEnergy()
+	{
+		currentEnergy = Mathf.Max (currentEnergy - decrementAmount, minEnergy);
+		img.fillAmount = currentEnergy / maxEnergy;
+	}
+
 
 	void Update () {
 	}
