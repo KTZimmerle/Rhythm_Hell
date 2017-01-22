@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour {
 		playerRender.enabled = false;
 		damagedRender.enabled = true;
 
+		FindObjectOfType<combo_script> ().ResetCombo ();
+
 		foreach (GameObject speaker in speakers) {
 			speaker.GetComponent<SpriteRenderer> ().enabled = false;
 		}
