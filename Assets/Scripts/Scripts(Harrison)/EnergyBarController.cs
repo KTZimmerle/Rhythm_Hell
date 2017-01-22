@@ -14,7 +14,7 @@ public class EnergyBarController : MonoBehaviour
     public KeyCode activateOn = KeyCode.None;
 
     UnityEngine.UI.Image img;
-	float currentEnergy = 0.0f;
+	float currentEnergy = 50.0f;
 
 	void Start () {
         //boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<RH_Boss>();
@@ -39,6 +39,10 @@ public class EnergyBarController : MonoBehaviour
     {
         currentEnergy = Mathf.Max(currentEnergy - decrementAmount, minEnergy);
         img.fillAmount = currentEnergy / maxEnergy;
+
+		if (currentEnergy <= 0.0f) {
+			FindObjectOfType<SceneController> ().SendMessage("GameOverLose");
+		}
     }
 
     void Update () {
