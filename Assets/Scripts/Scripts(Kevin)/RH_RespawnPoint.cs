@@ -76,6 +76,7 @@ public class RH_RespawnPoint : MonoBehaviour {
         for (int i = 0; i < 120; i++)
         {
             temp.a = (119 - i) / 119;
+            sr.color = temp;
             yield return new WaitForSeconds(0.017f);
         }
         yield return new WaitForSeconds(2.0f);
