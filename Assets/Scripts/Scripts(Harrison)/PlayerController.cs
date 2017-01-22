@@ -10,6 +10,14 @@ public class PlayerController : MonoBehaviour {
 	ShieldController shieldB;
 	ShieldController shieldC;
 	AudioSource damaged;
+	SpriteRenderer playerRender;
+	SpriteRenderer damagedRender;
+	public Sprite damagedPlayer;
+	Animator sAnim;
+	bool wasHit = false;
+	float timeElapsed = 0.0f;
+	float timeDamaged = 0.5f;
+
 
 	void Awake()
 	{
@@ -18,6 +26,9 @@ public class PlayerController : MonoBehaviour {
 		shieldB = player.transform.GetChild(2).GetComponentInChildren<ShieldController>();
 		shieldC = player.transform.GetChild(3).GetComponentInChildren<ShieldController>();
 		damaged = GetComponent<AudioSource> ();
+		playerRender = GameObject.FindGameObjectWithTag ("PlayerSprite").GetComponent<SpriteRenderer>();
+		damagedRender = GameObject.FindGameObjectWithTag ("PlayerSpriteDamaged").GetComponent<SpriteRenderer>();
+		//sAnim = GameObject.FindGameObjectWithTag ("PlayerSprite").GetComponent<Animator>();
 	}
 
 	void Start () {
@@ -33,6 +44,11 @@ public class PlayerController : MonoBehaviour {
 		miss = true; 
 
 		damaged.Play ();
+		//sAnim.Stop ();
+		playerRender.enabled = false;
+		damagedRender.enabled = true;
+		wasHit = true;
+		timeElapsed = 0.0f;
 	}
 
 	void Update () {
@@ -46,6 +62,16 @@ public class PlayerController : MonoBehaviour {
 			shieldB.combo_count = 0;
 			shieldC.combo_count = 0;
 			miss = true;
+		}
+
+		if (wasHit) {
+			timeElapsed += Time.deltaTime;
+
+			if (timeElapsed >= timeDamaged) {
+				//sAnim.Play ("Player Sprite Animation");
+				playerRender.enabled = true;
+				damagedRender.enabled = false;
+			}
 		}
 	}
 }

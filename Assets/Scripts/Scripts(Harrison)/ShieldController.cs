@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShieldController : MonoBehaviour {
 	public KeyCode activateOn = KeyCode.None;
+	public KeyCode activateTwo = KeyCode.None;
 	public int activeTimeMillis = 100;
 	public int combo_count;
 	enum Version{waveA,waveB,waveC};
@@ -96,7 +97,7 @@ public class ShieldController : MonoBehaviour {
 
 		timeElapsed += Time.deltaTime;
 
-		if (Input.GetKeyDown (activateOn) && !isActive) {
+		if ((Input.GetKeyDown (activateOn) || Input.GetKeyDown(activateTwo)) && !isActive) {
 			isActive = true;
 			timeElapsed = 0.0f;
 		}

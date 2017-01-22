@@ -16,6 +16,7 @@ public class EnergyBarController : MonoBehaviour
     public KeyCode activateOn = KeyCode.None;
 	float energyBombThreshold = 75.0f;
 	AudioSource attack;
+	Animation bombAnim;
 
     UnityEngine.UI.Image img;
 	float currentEnergy = 50.0f;
@@ -26,6 +27,7 @@ public class EnergyBarController : MonoBehaviour
 		img = GetComponent<UnityEngine.UI.Image> ();
 		img.fillAmount = currentEnergy / maxEnergy;
 		attack = GetComponent<AudioSource> ();
+		bombAnim = GameObject.FindGameObjectWithTag ("BombAnim").GetComponent<Animation>();
 	}
 
 	float min(float a, float b){
@@ -78,7 +80,7 @@ public class EnergyBarController : MonoBehaviour
 
     IEnumerator ActivateAttack()
     {
-
+		bombAnim.Play ();
 		attack.Play ();
 		DestroyWaves ("waveA");
 		DestroyWaves ("waveB");
