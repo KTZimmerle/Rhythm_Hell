@@ -6,6 +6,9 @@ public class ShieldController : MonoBehaviour {
 	public KeyCode activateOn = KeyCode.None;
 	public int activeTimeMillis = 200;
 
+	enum Version{waveA,waveB,waveC};
+	Version myVersion;
+
 	SpriteRenderer render;
 	Color activeColor;
 	Color passiveColor;
@@ -22,13 +25,29 @@ public class ShieldController : MonoBehaviour {
 		render = GetComponent<SpriteRenderer> ();
 		activeColor = render.color;
 		passiveColor = new Color(activeColor.r, activeColor.g, activeColor.b, 0);
+
 	}
 
 	void OnTriggerStay2D(Collider2D other) {
 		if (isActive) {
 			other.SendMessage ("OnBlock", SendMessageOptions.DontRequireReceiver);
 			Debug.Log ("blocked");
-			Destroy (other.gameObject);
+			if (other.tag == "waveA" && GetComponent<Transform>().tag == "ShieldA")//&& myVersion == Version.waveA)
+			{
+				Debug.Log("Cancel wave A");
+				Destroy (other.gameObject);
+			}
+			if (other.tag == "waveB" && GetComponent<Transform>().tag == "ShieldW")//myVersion == Version.waveB)
+			{
+				Debug.Log("Cancel wave B");
+				Destroy(other.gameObject);
+			}
+			if (other.tag == "waveC" && GetComponent<Transform>().tag == "ShieldD")//myVersion == Version.waveC)
+			{
+				Debug.Log("Cancel wave C");
+				Destroy(other.gameObject);
+			}
+
 			eBar.IncrementEnergy ();
             ss.ModifyScore(100);
 		}
@@ -36,6 +55,7 @@ public class ShieldController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		timeElapsed += Time.deltaTime;
 
 		if (Input.GetKeyDown (activateOn)) {
