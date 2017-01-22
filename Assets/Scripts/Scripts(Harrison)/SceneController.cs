@@ -10,9 +10,13 @@ public class SceneController : MonoBehaviour {
 	UnityEngine.UI.Text overlayText;
 	TransitionButton transButton;
 	AudioSource destroyed;
+    RH_RespawnPoint[] resPt = new RH_RespawnPoint[3];
 
 	void Start () {
-		overlayText = FindObjectOfType<OverlayController> ().GetComponent<UnityEngine.UI.Text>();
+        resPt[0] = GameObject.FindGameObjectWithTag("SpawnPt1").GetComponent<RH_RespawnPoint>();
+        resPt[1] = GameObject.FindGameObjectWithTag("SpawnPt2").GetComponent<RH_RespawnPoint>();
+        resPt[2] = GameObject.FindGameObjectWithTag("SpawnPt3").GetComponent<RH_RespawnPoint>();
+        overlayText = FindObjectOfType<OverlayController> ().GetComponent<UnityEngine.UI.Text>();
 		transButton = FindObjectOfType<TransitionButton> ();
 		destroyed = GetComponent<AudioSource> ();
 	}
@@ -43,7 +47,10 @@ public class SceneController : MonoBehaviour {
 			overlayText.text = "Victory!";
 			overlayText.enabled = true;
 			transButton.SendMessage ("EnableButton");
-		}
+            resPt[0].beginFadeout();
+            resPt[1].beginFadeout();
+            resPt[2].beginFadeout();
+        }
 	}
 
 	void BeatListDone() {
