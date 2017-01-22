@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 		playerRender.enabled = false;
 		damagedRender.enabled = true;
 
-		FindObjectOfType<combo_script> ().ResetCombo ();
+		//FindObjectOfType<combo_script> ().ResetCombo ();
 
 		foreach (GameObject speaker in speakers) {
 			speaker.GetComponent<SpriteRenderer> ().enabled = false;
@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour {
 		foreach (GameObject speaker in speakersDamaged) {
 			speaker.GetComponent<SpriteRenderer> ().enabled = true;
 		}
+
+
 		shieldA.combo_count = 0;
 		shieldB.combo_count = 0;
 		shieldA.combo_count = 0;
