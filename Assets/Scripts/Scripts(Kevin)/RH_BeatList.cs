@@ -5,7 +5,7 @@ using System.IO;
 
 public class RH_BeatList : MonoBehaviour {
 
-    public List<float> timings = new List<float>();
+    public List<double> timings = new List<double>();
     public List<string> spawnLocation = new List<string>();
     public string fileName;
     int index = 0;
@@ -54,9 +54,9 @@ public class RH_BeatList : MonoBehaviour {
         tr.Close();
     }
 
-    public float nextTime()
+    public double nextTime()
     {
-        float t = 5.0f;
+        double t = 5.0;
         Debug.Log("Index: " + index + " Count: " + timings.Count);
         if (index < timings.Count)
         {

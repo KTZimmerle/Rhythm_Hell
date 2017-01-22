@@ -14,7 +14,7 @@ public class RH_SpawnerStack : MonoBehaviour {
     RH_BeatList currentBL;
     bool gameStarted = false;
     private int top = 0;
-    float timer;
+    double timer;
 
 	// Use this for initialization
 	void Awake ()
