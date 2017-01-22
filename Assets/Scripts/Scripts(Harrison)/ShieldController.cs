@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class ShieldController : MonoBehaviour {
 	public KeyCode activateOn = KeyCode.None;
-	public int activeTimeMillis = 200;
-
+	public int activeTimeMillis = 100;
+	public int combo_count;
 	enum Version{waveA,waveB,waveC};
 	Version myVersion;
+	public bool miss; 
+	GameObject player;
+
+	public GameObject combo;
 
 	SpriteRenderer render;
 	Color activeColor;
@@ -18,6 +22,10 @@ public class ShieldController : MonoBehaviour {
 
     RH_ScoreSystem ss;
 
+	void Awake()
+	{
+		player = GameObject.FindGameObjectWithTag ("Player");
+	}
 	// Use this for initialization
 	void Start () {
         ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<RH_ScoreSystem>();
@@ -32,12 +40,28 @@ public class ShieldController : MonoBehaviour {
 		if (isActive) {
 			other.SendMessage ("OnBlock", SendMessageOptions.DontRequireReceiver);
 			Debug.Log ("blocked");
-			if (other.tag == "waveA" && GetComponent<Transform>().tag == "ShieldA")//&& myVersion == Version.waveA)
+
+
+			if ((other.tag == "waveA" && GetComponent<Transform>().tag == "ShieldA") || other.tag == "waveB" && GetComponent<Transform>().tag == "ShieldW" || other.tag == "waveC" && GetComponent<Transform>().tag == "ShieldD")//&& myVersion == Version.waveA)
+			{
+				Destroy (other.gameObject);
+				eBar.IncrementEnergy ();
+				ss.ModifyScore(100);
+				combo_count += 1;
+				miss = false;
+			}
+			else 
+			{
+				combo_count = 0;
+			}
+
+		/*	if (other.tag == "waveA" && GetComponent<Transform>().tag == "ShieldA")//&& myVersion == Version.waveA)
 			{
 				Debug.Log("Cancel wave A");
 				Destroy (other.gameObject);
 				eBar.IncrementEnergy ();
 				ss.ModifyScore(100);
+				combo_count += 1;
 			}
 			if (other.tag == "waveB" && GetComponent<Transform>().tag == "ShieldW")//myVersion == Version.waveB)
 			{
@@ -45,6 +69,7 @@ public class ShieldController : MonoBehaviour {
 				Destroy(other.gameObject);
 				eBar.IncrementEnergy ();
 				ss.ModifyScore(100);
+				combo_count += 1;
 			}
 			if (other.tag == "waveC" && GetComponent<Transform>().tag == "ShieldD")//myVersion == Version.waveC)
 			{
@@ -52,12 +77,20 @@ public class ShieldController : MonoBehaviour {
 				Destroy(other.gameObject);
 				eBar.IncrementEnergy ();
 				ss.ModifyScore(100);
+				combo_count += 1;
 			}
-
 			//eBar.IncrementEnergy ();
             //ss.ModifyScore(100);
+            */
 		}
+
 	}
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		combo_count = 0;
+	}
+
 	
 	// Update is called once per frame
 	void Update () {
