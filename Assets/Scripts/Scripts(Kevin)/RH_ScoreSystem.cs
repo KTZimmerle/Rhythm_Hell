@@ -14,7 +14,7 @@ public class RH_ScoreSystem : MonoBehaviour {
         scoreText.text = "Score: " + score;
 	}
 
-    void ModifyScore(int sc)
+    public void ModifyScore(int sc)
     {
         score += sc;
         scoreText.text = "Score: " + score;

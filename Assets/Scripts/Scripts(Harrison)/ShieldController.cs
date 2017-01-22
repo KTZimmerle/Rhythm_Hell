@@ -13,8 +13,11 @@ public class ShieldController : MonoBehaviour {
 	float timeElapsed = 0.0f;
 	EnergyBarController eBar;
 
+    RH_ScoreSystem ss;
+
 	// Use this for initialization
 	void Start () {
+        ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<RH_ScoreSystem>();
 		eBar = FindObjectOfType<EnergyBarController> ();
 		render = GetComponent<SpriteRenderer> ();
 		activeColor = render.color;
@@ -27,6 +30,7 @@ public class ShieldController : MonoBehaviour {
 			Debug.Log ("blocked");
 			Destroy (other.gameObject);
 			eBar.IncrementEnergy ();
+            ss.ModifyScore(100);
 		}
 	}
 	
