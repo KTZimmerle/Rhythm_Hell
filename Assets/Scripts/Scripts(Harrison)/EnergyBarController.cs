@@ -6,12 +6,13 @@ public class EnergyBarController : MonoBehaviour
 {
     public float maxEnergy = 100.0f;
     public float minEnergy = 0.0f;
-    public float incrementAmount = 10.0f;
-    public float decrementAmount = 15.0f;
+    public float incrementAmount = 5.0f;
+    public float decrementAmount = 10.0f;
 
     RH_ScoreSystem ss;
     RH_RespawnPoint boss;
     public KeyCode activateOn = KeyCode.None;
+	float energyBombThreshold = 75;
 
     UnityEngine.UI.Image img;
 	float currentEnergy = 50.0f;
@@ -47,15 +48,14 @@ public class EnergyBarController : MonoBehaviour
 
     void Update () {
 
-        if (Input.GetKeyDown(activateOn) && currentEnergy >= maxEnergy)
+		if (Input.GetKeyDown(activateOn) && currentEnergy >= energyBombThreshold)
         {
             StartCoroutine(ActivateAttack());
         }
     }
 
 	void DestroyWaves(string tag) {
-		GameObject[] waves = new GameObject[50];
-		waves = GameObject.FindGameObjectsWithTag(tag);
+		GameObject[] waves = GameObject.FindGameObjectsWithTag(tag);
 		foreach(GameObject w in waves)
 		{
 			Destroy(w);
@@ -70,7 +70,7 @@ public class EnergyBarController : MonoBehaviour
 		DestroyWaves ("waveC");
 
         boss.takeDamage(2);
-        currentEnergy = 50.0f;
+        currentEnergy -= 50.0f;
         img.fillAmount = currentEnergy / maxEnergy;
 
         yield return new WaitForSeconds(0.1f);
