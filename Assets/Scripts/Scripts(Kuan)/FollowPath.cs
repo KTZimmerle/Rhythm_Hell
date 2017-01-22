@@ -48,7 +48,16 @@ public class FollowPath : MonoBehaviour {
 		Vector3 dir = pathPoints [currentPath].position - transform.position;
 		Vector3 dirNorm = dir.normalized;
 		transform.Translate(dirNorm * speed);
-		transform.LookAt (pathPoints[currentPath]);
+<<<<<<< HEAD
+
+		//Making waves face movement direction -Craig
+		//Feel free to remove this chunk and do this a better way if needed.  Sorry for mucking in your code, you were busy ~_~
+		transform.rotation = Quaternion.LookRotation(dir);
+		//End Craig's addition
+
+=======
+		//transform.LookAt (pathPoints[currentPath]);
+>>>>>>> origin/master
 		if (dir.magnitude <= reachDistance){
 			currentPath++;
 			if (currentPath >= pathPoints.Length){
@@ -63,3 +72,6 @@ public class FollowPath : MonoBehaviour {
 		GetComponent<Rigidbody2D>().velocity = new Vector3(dirNorm.x * (speed * Time.fixedDeltaTime), GetComponent<Rigidbody2D>().velocity.y); 
 	}
 }
+
+
+
