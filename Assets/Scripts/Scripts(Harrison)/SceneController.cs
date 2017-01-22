@@ -19,6 +19,7 @@ public class SceneController : MonoBehaviour {
         overlayText = FindObjectOfType<OverlayController> ().GetComponent<UnityEngine.UI.Text>();
 		transButton = FindObjectOfType<TransitionButton> ();
 		destroyed = GetComponent<AudioSource> ();
+		GameObject.FindGameObjectWithTag ("menumusic").GetComponent<AudioSource>().Play();
 	}
 
 	void NextScene() {
