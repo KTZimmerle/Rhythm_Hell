@@ -5,8 +5,14 @@ using UnityEngine;
 public class SceneController : MonoBehaviour {
 	public string sceneToLoad = "Main Menu";
 
+	UnityEngine.UI.Text overlayText;
+	TransitionButton transButton;
+
 	void Start () {
-		
+		//UnityEngine.UI.Text[] texts = FindObjectsOfType<UnityEngine.UI.Text> ();
+
+		overlayText = FindObjectOfType<OverlayController> ().GetComponent<UnityEngine.UI.Text>();
+		transButton = FindObjectOfType<TransitionButton> ();
 	}
 
 	void NextScene() {
@@ -14,15 +20,17 @@ public class SceneController : MonoBehaviour {
 		UnityEngine.SceneManagement.SceneManager.LoadScene (sceneToLoad);
 	}
 
-	void GameOver() {
-		UnityEngine.UI.Text[] texts = FindObjectsOfType<UnityEngine.UI.Text> ();
-		foreach(UnityEngine.UI.Text textElement in texts)
-		{
-			if (textElement.name == "Overlay Text") {
-				textElement.text = "Game Over!";
-				textElement.enabled = true;
-			}
-		}
+	void GameOverLose() {
+
+		overlayText.text = "Game Over!";
+		overlayText.enabled = true;
+		transButton.SendMessage ("EnableButton");
+	}
+
+	void GameOverWin() {
+		overlayText.text = "Victory!";
+		overlayText.enabled = true;
+		transButton.SendMessage ("EnableButton");
 	}
 
 	void Update () {

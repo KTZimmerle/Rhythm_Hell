@@ -55,7 +55,10 @@ public class RH_SpawnerStack : MonoBehaviour {
         for (int i = 0; i < bl.getSTLength(); i++)
         {
             AddSpawn(HandleRespawnPt(bl.spawnLocation[i]));
+			Debug.Log(Peek());
+			//Debug.Break();
         }
+
         currentBL = bl;
         gameStarted = true;
 		timer = currentBL.nextTime();
@@ -81,6 +84,7 @@ public class RH_SpawnerStack : MonoBehaviour {
 
     public void AddSpawn(RH_RespawnPoint spawn)
     {
+		//Debug.Log("AddSpawn: " + spawn);
         Push(spawn);
     }
 
@@ -95,7 +99,7 @@ public class RH_SpawnerStack : MonoBehaviour {
     {
         //GameObject clone = Instantiate(Peek(), Peek().transform.position, Peek().transform.rotation);
         Peek().SpawnEnemy();
-        SpawnerStack.RemoveAt(top);
+        SpawnerStack.RemoveAt(0);
         return top--;
     }
 
@@ -109,6 +113,6 @@ public class RH_SpawnerStack : MonoBehaviour {
 
     private RH_RespawnPoint Peek()
     {
-        return SpawnerStack[top];
+        return SpawnerStack[0];
     }
 }

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
 
 
 		if (hitPoints <= 0) {
-			FindObjectOfType<SceneController> ().SendMessage ("GameOver");
+			FindObjectOfType<SceneController> ().SendMessage ("GameOverLose");
 		}
 	}
 
