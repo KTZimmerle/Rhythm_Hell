@@ -3,29 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-	public int meterMax = 100;
-	public int chargeAmount = 10;
-
-	public int meterValue = 0;
+	public int hitPoints = 10;
+	public int damagePerHit = 1;
 
 	void Start () {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		other.SendMessage ("OnHit", SendMessageOptions.DontRequireReceiver);
+		//other.SendMessage ("OnHit", SendMessageOptions.DontRequireReceiver);
 		Debug.Log ("player hit");
 		Destroy (other.gameObject);
-	}
+		hitPoints -= damagePerHit;
 
-
-
-
-	public void OnBlock()
-	{
-		
+		if (hitPoints <= 0) {
+			FindObjectOfType<GameOverController> ().SendMessage ("OnGameOver");
+		}
 	}
 
 	void Update () {
-		//meterValue = (meterValue + 1) % 101;
 	}
 }
