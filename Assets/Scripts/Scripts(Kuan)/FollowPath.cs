@@ -45,14 +45,15 @@ public class FollowPath : MonoBehaviour {
 	}
 
 	void UseTransform(){
-		Vector3 dir = pathPoints [currentPath].position - transform.position;
+		Vector3 dir = transform.position - pathPoints [currentPath].position;
 		Vector3 dirNorm = dir.normalized;
-		transform.Translate(dirNorm * speed);
 
 		//Making waves face movement direction -Craig
 		//Feel free to remove this chunk and do this a better way if needed.  Sorry for mucking in your code, you were busy ~_~
-		transform.rotation = Quaternion.LookRotation(dir);
+		transform.rotation = Quaternion.LookRotation(Vector3.forward, dirNorm);
 		//End Craig's addition
+
+		transform.Translate(Vector3.down * speed);
 
 		if (dir.magnitude <= reachDistance){
 			currentPath++;
