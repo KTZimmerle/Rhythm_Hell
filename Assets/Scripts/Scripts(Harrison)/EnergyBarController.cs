@@ -116,6 +116,7 @@ public class EnergyBarController : MonoBehaviour
 
     IEnumerator ActivateAttack()
     {
+		this.transform.GetComponent<UnityEngine.UI.Image>().sprite = semi_charge;
 		bombAnim.Play ();
 		attack.Play ();
 		DestroyWaves ("waveA");
