@@ -50,10 +50,6 @@ public class ShieldController : MonoBehaviour {
 				combo_count += 1;
 				miss = false;
 			}
-			else 
-			{
-				combo_count = 0;
-			}
 
 		/*	if (other.tag == "waveA" && GetComponent<Transform>().tag == "ShieldA")//&& myVersion == Version.waveA)
 			{

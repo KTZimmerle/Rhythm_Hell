@@ -17,7 +17,7 @@ public class EnergyBarController : MonoBehaviour
 	float currentEnergy = 50.0f;
 
 	void Start () {
-        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<RH_RespawnPoint>();
+        //boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<RH_RespawnPoint>();
         ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<RH_ScoreSystem>();
 		img = GetComponent<UnityEngine.UI.Image> ();
 		img.fillAmount = currentEnergy / maxEnergy;

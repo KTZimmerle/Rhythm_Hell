@@ -28,15 +28,8 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log ("player hit");
 		Destroy (other.gameObject);
 		eBar.DecrementEnergy ();
-<<<<<<< HEAD
-		hitPoints -= damagePerHit;
 		//also reduce the energy bar if hit
 		miss = true; 
-		if (hitPoints <= 0) {
-			FindObjectOfType<SceneController> ().SendMessage ("GameOverLose");
-		}
-=======
->>>>>>> origin/master
 	}
 
 	void Update () {
