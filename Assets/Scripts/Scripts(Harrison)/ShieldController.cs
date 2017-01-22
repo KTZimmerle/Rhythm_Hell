@@ -19,12 +19,14 @@ public class ShieldController : MonoBehaviour {
 	bool isActive = false;
 	float timeElapsed = 0.0f;
 	EnergyBarController eBar;
+	AudioSource absorbed;
 
     RH_ScoreSystem ss;
 
 	void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
+		absorbed = GetComponent<AudioSource> ();
 	}
 	// Use this for initialization
 	void Start () {
@@ -49,6 +51,7 @@ public class ShieldController : MonoBehaviour {
 				ss.ModifyScore(100);
 				combo_count += 1;
 				miss = false;
+				absorbed.Play ();
 			}
 
 		/*	if (other.tag == "waveA" && GetComponent<Transform>().tag == "ShieldA")//&& myVersion == Version.waveA)
