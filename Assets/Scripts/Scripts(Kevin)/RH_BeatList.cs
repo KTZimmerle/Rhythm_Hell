@@ -58,13 +58,13 @@ public class RH_BeatList : MonoBehaviour {
     {
         double t = 5.0;
         Debug.Log("Index: " + index + " Count: " + timings.Count);
-        if (index < timings.Count)
-        {
-            t = timings[index];
-            index++;
-        }
-        else
-            isDone = true;
+		if (index < timings.Count) {
+			t = timings [index];
+			index++;
+		} else {
+			isDone = true;
+			FindObjectOfType<SceneController> ().SendMessage("BeatListDone");
+		}
         return t;
     }
 
