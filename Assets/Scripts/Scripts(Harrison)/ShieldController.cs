@@ -93,7 +93,7 @@ public class ShieldController : MonoBehaviour {
 
 		timeElapsed += Time.deltaTime;
 
-		if (Input.GetKeyDown (activateOn)) {
+		if (Input.GetKeyDown (activateOn) && !isActive) {
 			isActive = true;
 			timeElapsed = 0.0f;
 		}
