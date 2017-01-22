@@ -25,19 +25,24 @@ public class combo_script : MonoBehaviour {
 		Debug.Log("SA: " + shieldA);
 		Debug.Log("SB: " + shieldB);
 		Debug.Log("SC: " + shieldC);
+		ResetCombo ();
+	}
+
+	public void ResetCombo() {
+		a_count = shieldA.combo_count;
+		b_count = shieldB.combo_count;
+		c_count = shieldC.combo_count;
+		total_count = a_count + b_count + c_count;
+		combo.text = total_count.ToString();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log("Shield count: " + shieldA);
-		miss = player.transform.GetComponent<PlayerController>().miss;
+		miss = player.GetComponent<PlayerController>().miss;
 		if (miss == false)
 		{
-			a_count = shieldA.combo_count;
-			b_count = shieldB.combo_count;
-			c_count = shieldC.combo_count;
-			total_count = a_count + b_count + c_count;
-			combo.text = total_count.ToString();
+			
 		}
 		else 
 		{
