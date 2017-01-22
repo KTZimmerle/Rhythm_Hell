@@ -36,20 +36,26 @@ public class ShieldController : MonoBehaviour {
 			{
 				Debug.Log("Cancel wave A");
 				Destroy (other.gameObject);
+				eBar.IncrementEnergy ();
+				ss.ModifyScore(100);
 			}
 			if (other.tag == "waveB" && GetComponent<Transform>().tag == "ShieldW")//myVersion == Version.waveB)
 			{
 				Debug.Log("Cancel wave B");
 				Destroy(other.gameObject);
+				eBar.IncrementEnergy ();
+				ss.ModifyScore(100);
 			}
 			if (other.tag == "waveC" && GetComponent<Transform>().tag == "ShieldD")//myVersion == Version.waveC)
 			{
 				Debug.Log("Cancel wave C");
 				Destroy(other.gameObject);
+				eBar.IncrementEnergy ();
+				ss.ModifyScore(100);
 			}
 
-			eBar.IncrementEnergy ();
-            ss.ModifyScore(100);
+			//eBar.IncrementEnergy ();
+            //ss.ModifyScore(100);
 		}
 	}
 	
