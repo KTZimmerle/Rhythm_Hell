@@ -1,0 +1,106 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 980M (ID=0x1617)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   21.21.13.7633
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.041 seconds
+Platform assembly: C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\hbboo\Documents\GitHub\Rhythm_Hell\RhythmHell_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 75Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 3.540574 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at SceneController.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 15.680532 ms
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 403)
+
+SA: Shield A ON Visual (ShieldController)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+SB: Shield W ON Visual (ShieldController)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+SC: Shield D ON Visual (ShieldController)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 729.
+Total: 0.896887 ms (FindLiveObjects: 0.098294 ms CreateObjectMapping: 0.089609 ms MarkObjects: 0.693587 ms  DeleteObjects: 0.013421 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.850620 ms
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 403)
+
+SA: Shield A ON Visual (ShieldController)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+SB: Shield W ON Visual (ShieldController)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+SC: Shield D ON Visual (ShieldController)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 729.
+Total: 0.787934 ms (FindLiveObjects: 0.084477 ms CreateObjectMapping: 0.074214 ms MarkObjects: 0.616610 ms  DeleteObjects: 0.011842 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.707718 ms
+Default clip could not be found in attached animations list.
+ 
+(Filename:  Line: 403)
+
+SA: Shield A ON Visual (ShieldController)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+SB: Shield W ON Visual (ShieldController)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+SC: Shield D ON Visual (ShieldController)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 729.
+Total: 0.757143 ms (FindLiveObjects: 0.076188 ms CreateObjectMapping: 0.074609 ms MarkObjects: 0.594898 ms  DeleteObjects: 0.010658 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2e6c -> priority: 1 
+  Thread -> id: 2d28 -> priority: 1 
