@@ -10,14 +10,14 @@ public class EnergyBarController : MonoBehaviour
     public float decrementAmount = 15.0f;
 
     RH_ScoreSystem ss;
-    RH_Boss boss;
+    RH_RespawnPoint boss;
     public KeyCode activateOn = KeyCode.None;
 
     UnityEngine.UI.Image img;
 	float currentEnergy = 50.0f;
 
 	void Start () {
-        //boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<RH_Boss>();
+        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<RH_RespawnPoint>();
         ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<RH_ScoreSystem>();
 		img = GetComponent<UnityEngine.UI.Image> ();
 		img.fillAmount = currentEnergy / maxEnergy;
