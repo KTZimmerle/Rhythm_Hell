@@ -19,9 +19,12 @@ public class combo_script : MonoBehaviour {
 	// Use this for initialization
 	void Awake() {
 		player = GameObject.FindGameObjectWithTag ("Player");
-		shieldA = player.transform.GetChild(1).GetComponentInChildren<ShieldController>();
-		shieldB = player.transform.GetChild(2).GetComponentInChildren<ShieldController>();
-		shieldC = player.transform.GetChild(3).GetComponentInChildren<ShieldController>();
+		shieldA = player.transform.GetChild(0).GetComponentInChildren<ShieldController>();
+		shieldB = player.transform.GetChild(1).GetComponentInChildren<ShieldController>();
+		shieldC = player.transform.GetChild(2).GetComponentInChildren<ShieldController>();
+		Debug.Log("SA: " + shieldA);
+		Debug.Log("SB: " + shieldB);
+		Debug.Log("SC: " + shieldC);
 	}
 
 	// Update is called once per frame
@@ -39,8 +42,8 @@ public class combo_script : MonoBehaviour {
 		else 
 		{
 			shieldA.combo_count = 0;
-			b_count = shieldB.combo_count = 0;
-			c_count = shieldC.combo_count = 0;
+			shieldB.combo_count = 0;
+			shieldC.combo_count = 0;
 			a_count = 0;
 			b_count = 0;
 			c_count = 0;
