@@ -9,7 +9,8 @@ public class RH_RespawnPoint : MonoBehaviour {
 
     public GameObject Enemy;
     public GameObject Wave;
-    public int health = 20;
+    public int health = 5;
+    public SceneController sc;
     RH_ScoreSystem ss;
     bool isDead = false;
     //List<GameObject> SpawnerStack;
@@ -60,7 +61,26 @@ public class RH_RespawnPoint : MonoBehaviour {
             ss.ModifyScore(1000);
             //Destroy(gameObject);
             isDead = true;
+            sc.GameOverWin();
         }
+    }
+
+    public void beginFadeout()
+    {
+        StartCoroutine(fade());
+    }
+
+    IEnumerator fade()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Color temp = sr.color;
+        for (int i = 0; i < 120; i++)
+        {
+            temp.a = (119.0f - i) / 119;
+            sr.color = temp;
+            yield return new WaitForSeconds(0.017f);
+        }
+        yield return new WaitForSeconds(2.0f);
     }
 
     /*public void RandomizePosition(float xMinRange = -5.0f, float xMaxRange = 5.0f, float yMinRange = -5.0f, float yMaxRange = 5.0f)

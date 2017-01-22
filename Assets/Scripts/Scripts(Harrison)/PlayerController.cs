@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour {
 	Animator sAnim;
 	bool wasHit = false;
 	float timeElapsed = 0.0f;
-	float timeDamaged = 0.5f;
-
+	public float timeDamaged = 0.5f;
+	GameObject[] speakers;
+	GameObject[] speakersDamaged;
 
 	void Awake()
 	{
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour {
 		playerRender = GameObject.FindGameObjectWithTag ("PlayerSprite").GetComponent<SpriteRenderer>();
 		damagedRender = GameObject.FindGameObjectWithTag ("PlayerSpriteDamaged").GetComponent<SpriteRenderer>();
 		//sAnim = GameObject.FindGameObjectWithTag ("PlayerSprite").GetComponent<Animator>();
+		speakers = GameObject.FindGameObjectsWithTag("Speakers");
+		speakersDamaged = GameObject.FindGameObjectsWithTag ("SpeakersDamaged");
 	}
 
 	void Start () {
@@ -47,6 +50,15 @@ public class PlayerController : MonoBehaviour {
 		//sAnim.Stop ();
 		playerRender.enabled = false;
 		damagedRender.enabled = true;
+
+		foreach (GameObject speaker in speakers) {
+			speaker.GetComponent<SpriteRenderer> ().enabled = false;
+		}
+
+		foreach (GameObject speaker in speakersDamaged) {
+			speaker.GetComponent<SpriteRenderer> ().enabled = true;
+		}
+
 		wasHit = true;
 		timeElapsed = 0.0f;
 	}
@@ -71,6 +83,14 @@ public class PlayerController : MonoBehaviour {
 				//sAnim.Play ("Player Sprite Animation");
 				playerRender.enabled = true;
 				damagedRender.enabled = false;
+
+				foreach (GameObject speaker in speakers) {
+					speaker.GetComponent<SpriteRenderer> ().enabled = true;
+				}
+
+				foreach (GameObject speaker in speakersDamaged) {
+					speaker.GetComponent<SpriteRenderer> ().enabled = false;
+				}
 			}
 		}
 	}
