@@ -58,6 +58,10 @@ public class PlayerController : MonoBehaviour {
 		foreach (GameObject speaker in speakersDamaged) {
 			speaker.GetComponent<SpriteRenderer> ().enabled = true;
 		}
+		shieldA.combo_count = 0;
+		shieldB.combo_count = 0;
+		shieldA.combo_count = 0;
+		miss = true;
 
 		wasHit = true;
 		timeElapsed = 0.0f;
