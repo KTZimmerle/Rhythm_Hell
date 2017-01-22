@@ -74,7 +74,7 @@ public class EnergyBarController : MonoBehaviour
 		DestroyWaves ("waveC");
 
         boss.takeDamage(2);
-        currentEnergy -= 50.0f;
+        currentEnergy = 25.0f;
         img.fillAmount = currentEnergy / maxEnergy;
 
 
