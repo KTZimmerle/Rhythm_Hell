@@ -6,7 +6,7 @@ public class EnergyBarController : MonoBehaviour
 {
     public float maxEnergy = 100.0f;
     public float minEnergy = 0.0f;
-    public float incrementAmount = 10.0f;
+    public float incrementAmount = 05.0f;
     public float decrementAmount = 10.0f;
 	public Sprite full_charge;
 	public Sprite semi_charge;
