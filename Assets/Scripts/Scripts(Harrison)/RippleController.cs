@@ -7,6 +7,7 @@ public class RippleController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		transform.parent.DetachChildren ();
 		anim = GetComponent<Animation> ();
 		//anim.wrapMode = WrapMode.Once;
 		//anim.Play ();

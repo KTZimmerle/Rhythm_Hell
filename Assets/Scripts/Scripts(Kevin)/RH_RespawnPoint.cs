@@ -13,12 +13,10 @@ public class RH_RespawnPoint : MonoBehaviour {
     RH_ScoreSystem ss;
     //List<GameObject> SpawnerStack;
     //public GameObject EnemyWaveAttack;
-	Animation rippleAnim;
 
     void Awake()
     {
         ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<RH_ScoreSystem>();
-		rippleAnim = GetComponentInChildren<Animation> ();
     }
 
     // Update is called once per frame
@@ -47,8 +45,6 @@ public class RH_RespawnPoint : MonoBehaviour {
     public void SpawnEnemy()
     {
         GameObject clone = Instantiate(Enemy, transform.position, transform.rotation) as GameObject;
-		rippleAnim.Play ();
-		//Debug.Log ("RIPPLE");
     }
 
     public void takeDamage(int dmg)
