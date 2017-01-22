@@ -11,11 +11,13 @@ public class RH_RespawnPoint : MonoBehaviour {
     public GameObject Wave;
     public int health = 20;
     RH_ScoreSystem ss;
+    bool isDead = false;
     //List<GameObject> SpawnerStack;
     //public GameObject EnemyWaveAttack;
 
     void Awake()
     {
+        isDead = false;
         ss = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<RH_ScoreSystem>();
     }
 
@@ -44,17 +46,20 @@ public class RH_RespawnPoint : MonoBehaviour {
 
     public void SpawnEnemy()
     {
-        GameObject clone = Instantiate(Enemy, transform.position, transform.rotation) as GameObject;
+        GameObject clone;
+        if (!isDead)
+            clone = Instantiate(Enemy, transform.position, transform.rotation) as GameObject;
     }
 
     public void takeDamage(int dmg)
     {
         health -= dmg;
-        if (health < 0)
+        if (health <= 0)
         {
             //boss dies, gain score
             ss.ModifyScore(1000);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            isDead = true;
         }
     }
 
