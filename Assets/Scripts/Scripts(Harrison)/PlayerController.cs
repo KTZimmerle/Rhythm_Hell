@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 		hitPoints -= damagePerHit;
 
 		if (hitPoints <= 0) {
-			//FindObjectOfType<GameOverController> ().SendMessage ("OnGameOver");
+			FindObjectOfType<SceneController> ().SendMessage ("GameOver");
 		}
 	}
 

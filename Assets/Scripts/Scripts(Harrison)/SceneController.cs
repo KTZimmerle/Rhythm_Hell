@@ -14,6 +14,17 @@ public class SceneController : MonoBehaviour {
 		UnityEngine.SceneManagement.SceneManager.LoadScene (sceneToLoad);
 	}
 
+	void GameOver() {
+		UnityEngine.UI.Text[] texts = FindObjectsOfType<UnityEngine.UI.Text> ();
+		foreach(UnityEngine.UI.Text textElement in texts)
+		{
+			if (textElement.name == "Overlay Text") {
+				textElement.text = "Game Over!";
+				textElement.enabled = true;
+			}
+		}
+	}
+
 	void Update () {
 		
 	}
