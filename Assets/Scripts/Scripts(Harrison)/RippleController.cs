@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RippleController : MonoBehaviour {
 	Animation anim;
+	float timeElapsed = 0.0f;
+	float timeToDestroy = 2.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -15,10 +17,10 @@ public class RippleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+		timeElapsed += Time.deltaTime;
 
-	void PlayAnimation() {
-		anim.Play ();
+		if (timeElapsed > timeToDestroy) {
+			Destroy (gameObject);
+		}
 	}
 }
