@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnergyBarController : MonoBehaviour
 {
@@ -10,13 +11,25 @@ public class EnergyBarController : MonoBehaviour
     public float decrementAmount = 10.0f;
 	public Sprite full_charge;
 	public Sprite semi_charge;
-
+	List<Sprite> images = new List<Sprite>();
+	public Sprite charge1;
+	public Sprite charge2;
+	public Sprite charge3;
+	public Sprite charge4;
+	public Sprite charge5;
+	public Sprite charge6;
+	public Sprite charge7;
+	public Sprite charge8;
+	public Sprite charge9;
+	public float cooldown = 10.0f;
+	public float animetime = -100.0f;
     RH_ScoreSystem ss;
     RH_RespawnPoint boss;
     public KeyCode activateOn = KeyCode.None;
 	float energyBombThreshold = 75.0f;
 	AudioSource attack;
 	Animation bombAnim;
+
 
     UnityEngine.UI.Image img;
 	float currentEnergy = 50.0f;
@@ -28,6 +41,15 @@ public class EnergyBarController : MonoBehaviour
 		img.fillAmount = currentEnergy / maxEnergy;
 		attack = GetComponent<AudioSource> ();
 		bombAnim = GameObject.FindGameObjectWithTag ("BombAnim").GetComponent<Animation>();
+		images.Add(charge1);
+		images.Add(charge2);
+		images.Add(charge3);
+		images.Add(charge4);
+		images.Add(charge5);
+		images.Add(charge6);
+		images.Add(charge7);
+		images.Add(charge8);
+		images.Add(charge9);
 	}
 
 	float min(float a, float b){
@@ -40,19 +62,22 @@ public class EnergyBarController : MonoBehaviour
 	{
 		currentEnergy = min (currentEnergy + incrementAmount, maxEnergy);
 		img.fillAmount = currentEnergy / maxEnergy;
-
-		if (currentEnergy >= maxEnergy)
+		if (currentEnergy == maxEnergy)
 		{
 			this.transform.GetComponent<UnityEngine.UI.Image>().sprite = full_charge;
-		}
-		else if(currentEnergy < maxEnergy)
-		{
-			this.transform.GetComponent<UnityEngine.UI.Image>().sprite = semi_charge;
+			for (int cnt = 0; cnt < images.Count; cnt++)
+			{
+				this.transform.GetComponent<UnityEngine.UI.Image>().sprite = images[cnt];
+
+			}
+
+			//StartCoroutine(Wait());
 		}
 	}
 
     public void DecrementEnergy()
     {
+		this.transform.GetComponent<UnityEngine.UI.Image>().sprite = semi_charge;
         currentEnergy = Mathf.Max(currentEnergy - decrementAmount, minEnergy);
         img.fillAmount = currentEnergy / maxEnergy;
 
@@ -60,6 +85,13 @@ public class EnergyBarController : MonoBehaviour
 			FindObjectOfType<SceneController> ().SendMessage("GameOverLose");
 		}
     }
+
+	IEnumerator Wait()
+	{
+		this.transform.GetComponent<UnityEngine.UI.Image>().sprite = full_charge;
+		yield return new WaitForSeconds(10f);
+	}
+
 
     void Update () {
 
