@@ -26,6 +26,10 @@ public class SceneController : MonoBehaviour {
 		UnityEngine.SceneManagement.SceneManager.LoadScene (sceneToLoad);
 	}
 
+	void CreditsScene() {
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Credit");
+	}
+
 	void QuitGame()
 	{
 		Application.Quit();
