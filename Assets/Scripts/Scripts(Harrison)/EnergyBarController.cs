@@ -8,6 +8,8 @@ public class EnergyBarController : MonoBehaviour
     public float minEnergy = 0.0f;
     public float incrementAmount = 10.0f;
     public float decrementAmount = 10.0f;
+	public Sprite full_charge;
+	public Sprite semi_charge;
 
     RH_ScoreSystem ss;
     RH_RespawnPoint boss;
@@ -36,6 +38,15 @@ public class EnergyBarController : MonoBehaviour
 	{
 		currentEnergy = min (currentEnergy + incrementAmount, maxEnergy);
 		img.fillAmount = currentEnergy / maxEnergy;
+
+		if (currentEnergy >= maxEnergy)
+		{
+			this.transform.GetComponent<UnityEngine.UI.Image>().sprite = full_charge;
+		}
+		else if(currentEnergy < maxEnergy)
+		{
+			this.transform.GetComponent<UnityEngine.UI.Image>().sprite = semi_charge;
+		}
 	}
 
     public void DecrementEnergy()
