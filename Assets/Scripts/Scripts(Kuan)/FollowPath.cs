@@ -48,7 +48,7 @@ public class FollowPath : MonoBehaviour {
 		Vector3 dir = pathPoints [currentPath].position - transform.position;
 		Vector3 dirNorm = dir.normalized;
 		transform.Translate(dirNorm * speed);
-		transform.LookAt (pathPoints[currentPath]);
+		//transform.LookAt (pathPoints[currentPath]);
 		if (dir.magnitude <= reachDistance){
 			currentPath++;
 			if (currentPath >= pathPoints.Length){
